@@ -1,0 +1,8 @@
+Flask==3.0.3
+psycopg2-binary==2.9.9
+alembic==1.13.3
+SQLAlchemy==2.0.36
+Flask-WTF==1.2.2
+python-dotenv==1.0.1
+Flask-Login==0.6.3
+email_validator==2.2.0

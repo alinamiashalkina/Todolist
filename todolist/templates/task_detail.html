@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ task.title }}</h1>
+    <p><strong>Description:</strong> {{ task.description }}</p>
+    <p><strong>Category:</strong> {{ task.category }}</p>
+    <p><strong>Status:</strong> {{ task.status }}</p>
+    <p><strong>Attachment:</strong> {{ task.attachment }}</p>
+    <p><strong>Responsible executor:</strong> {{ task.user.username }}</p>
+    <p><strong>Due date:</strong> {{ task.due_date }}</p>
+
+    <a href="{{ url_for('edit_task', task_id=task.id) }}">
+        <button>Edit task</button>
+    </a>
+
+    <form action="{{ url_for('delete_task', task_id=task.id) }}" method="post" style="display:inline;">
+        <button type="submit">Delete task</button>
+    </form>
+
+    <a href="{{ url_for('index') }}">
+        <button>Back to task list</button>
+    </a>
+{% endblock %}

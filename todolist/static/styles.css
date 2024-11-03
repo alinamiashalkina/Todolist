@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0e5ff;
+    margin: 0;
+    padding: 20px;
+    color: #6a0dad;
+}
+header {
+    background: #6a0dad;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    border-radius: 10px;
+}
+h3, a {
+    color: #fff;
+}
+
+h4 {
+    color: #0a0a0a;
+}
+
+.btn-primary {
+    background-color: #6a0dad;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn-secondary {
+    background-color: #a5a5a5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s;
+
+}
+select {
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #e0b3ff;
+}
+.task-list {
+    list-style-type: none;
+    padding: 0;
+}
+.task-list li {
+    background: white;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s;
+}
+.task-list li:hover {
+    background-color: #e6ccff;
+}
+.task-list li a {
+    text-decoration: none;
+    color: #6a0dad;
+    font-weight: bold;
+}
+.auth-links {
+    margin-top: 20px;
+    text-align: center;
+}
+.auth-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #9b59b6;
+}
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 1px solid #6a0dad;
+    border-radius: 8px;
+    background-color: #f8f0ff;
+    transition: background-color 0.3s;
+}
+
+.form-group:hover {
+    background-color: #e6ccff;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #4b0082;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #6a0dad;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.text-danger {
+    color: red
+}

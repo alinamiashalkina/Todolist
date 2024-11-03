@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+
+    <h1>Edit task</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}  <!-- CSRF-токен -->
+
+        <div class="form-group">
+            {{ form.title.label(class="form-label") }}
+            {{ form.title(class="form-control", size=32) }}
+            {% for error in form.title.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.description.label(class="form-label") }}
+            {{ form.description(class="form-control", rows=4) }}
+            {% for error in form.description.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.category.label(class="form-label") }}
+            {{ form.category(class="form-control") }}
+            {% for error in form.category.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.status.label(class="form-label") }}
+            {{ form.status(class="form-control") }}
+            {% for error in form.status.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.attachment.label(class="form-label") }}
+            {{ form.attachment(class="form-control-file") }}
+            {% for error in form.attachment.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.user_id.label(class="form-label") }}
+            {{ form.user_id(class="form-control") }}
+            {% for error in form.user_id.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="btn-primary">Save</button>
+        <a href="{{ url_for('task_detail', task_id=task.id) }}"
+           class="btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

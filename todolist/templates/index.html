@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="text-align: center;">
+    {% if current_user.is_authenticated %}
+        <p>Welcome, {{ current_user.username }}!</p>
+        <div style="text-align: center; margin: 20px 0;">
+        <a href="{{ url_for('create_task') }}" class="btn-primary">Create a new task</a>
+        </div>
+    {% else %}
+        <p>Welcome, Guest!</p>
+    {% endif %}
+</div>
+
+<h4>Task list</h4>
+
+<form method="GET" action="/">
+    <select name="category" onchange="this.form.submit()">
+        <option value="">All categories</option>
+        {% for category in categories %}
+            <option value="{{ category }}"
+                {% if category == request.args.get('category') %} selected {% endif %}>
+                {{ category }}
+            </option>
+        {% endfor %}
+    </select>
+</form>
+
+<ul class="task-list">
+    {% for task in tasks %}
+        <li>
+            <a href="{{ url_for('task_detail', task_id=task.id) }}">{{ task.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<div class="auth-links">
+    {% if current_user.is_authenticated %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Sign Up</a>
+    {% endif %}
+</div>
+{% endblock %}

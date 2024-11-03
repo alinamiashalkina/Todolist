@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h1>Create a new task</h1>
+    <form method="POST" action="{{ url_for('create_task') }}" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}  <!-- Защита от CSRF -->
+
+        <div class="form-group">
+            {{ form.title.label(class="form-label") }}
+            {{ form.title(class="form-control", size=32) }}
+            {% for error in form.title.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.description.label(class="form-label") }}
+            {{ form.description(class="form-control", rows=4) }}
+            {% for error in form.description.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.category.label(class="form-label") }}
+            {{ form.category(class="form-control") }}
+            {% for error in form.category.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.status.label(class="form-label") }}
+            {{ form.status(class="form-control") }}
+            {% for error in form.status.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.attachment.label(class="form-label") }}
+            {{ form.attachment(class="form-control-file") }}
+            {% for error in form.attachment.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.user_id.label(class="form-label") }}
+            {{ form.user_id(class="form-control") }}
+            {% for error in form.user_id.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.due_date.label(class="form-label") }}
+            {{ form.due_date(class="form-control", placeholder="YYYY-MM-DD HH:MM:SS") }}
+            {% for error in form.due_date.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="btn-primary">Create a task</button>
+        <a href="{{ url_for('index') }}" class="btn-secondary">Back</a>
+    </form>
+</div>
+{% endblock %}
